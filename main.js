@@ -3,4 +3,5 @@ const app = new express();
 const path = require("path");
 
 app.use(express.static("public"));
-app.listen(8000);
+var port = 8000;
+app.listen(port, () => console.log('Application listening on port ' + port + '!'));
