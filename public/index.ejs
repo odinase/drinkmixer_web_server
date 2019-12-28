@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta lang="nb">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drinkmixer</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="icon" href="cocktail.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="cocktail.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <div id="hallobox" class="bokser">
+        <h1>Hello</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias omnis nostrum assumenda natus
+            necessitatibus
+            itaque repellat quidem, numquam doloremque quae quibusdam ad sed. Quod perspiciatis fugit corrupti, odit
+            assumenda doloremque.</p>
+    </div>
+
+    
+    <div class="dropdown">
+        <button class="dropbtn">Drinker</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="launchPython('test');">Gin & Tonic</a>
+            <a href="#" onclick="launchPython('test');">Cola & Rum</a>
+            <a href="#" onclick="launchPython('test');">Saft</a>
+        </div>
+      </div>
+
+      <form id="drinks" action="/drinks" method="POST">
+        <select name="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+        <br><br>
+        <input type="submit">
+      </form>
+
+    <button id="pressMeg1" onclick="launchPython('button1');" class="buttons">Press meg</button>
+    <button id="pressMeg2" onclick="launchPython('button2');" class="buttons">Press meg</button>
+    <button id="pressMeg3" onclick="launchPython('button3');" class="buttons">Press meg</button>
+    <button id="pressMeg4" onclick="launchPython('button4');" class="buttons">Press meg</button>
+    <button id="pressMeg5" onclick="launchPython('button5');" class="buttons">Press meg</button>
+
+    <div id="hadetbox" class="bokser">
+        <h1>Hadet</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias omnis nostrum assumenda natus
+            necessitatibus
+            itaque repellat quidem, numquam doloremque quae quibusdam ad sed. Quod perspiciatis fugit corrupti, odit
+            assumenda doloremque.</p>
+    </div>
+    <script type="module" src="script.js">
+    </script>
+</body>
+
+</html>

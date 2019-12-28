@@ -10,6 +10,6 @@ function pressBtn(btn) {
 
 function launchPython(btn) {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "test.txt", true);
+    xhttp.open("POST", "/gintonic", true);
     xhttp.send();
 }

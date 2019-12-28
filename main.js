@@ -1,10 +1,13 @@
 const express = require("express");
-const app = new express();
 const path = require("path");
+var bodyParser = require("body-parser");
 let {PythonShell} = require('python-shell');
-let pyshell = new PythonShell('node_tests.py');
 
-app.use(express.static("public"));
+const app = new express();
+let pyshell = new PythonShell('node_tests.py');
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// app.use(express.static("public"));
 
 app.get('/test', (req, res) => {
     // Call your python script here.
@@ -19,12 +22,15 @@ app.get('/test', (req, res) => {
     process.stderr.on('data', (myErr) => {
         // If anything gets written to stderr, it'll be in the myErr variable
     })
-})
+});
 
-app.get('test.txt', (req, res) => {
-    pyshell.send(btn);
-    console.log("got request!");
-})
+app.get('/', (req, res) => {
+    res.render('public/index.ejs', null);
+});
+
+app.post('/gintonic', (res, req) => {
+
+});
 
 var port = 8000;
 app.listen(port, () => console.log('Application listening on port ' + port + '!'));

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta lang="nb">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drinkmixer</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- <link rel="icon" href="cocktail.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="cocktail.ico" type="image/x-icon" /> -->
+</head>
+
+<body>
+  <h1>Drinkmixer</h1>
+  <p>You chose <%= drink %> </p>
+  <form id="drinks" action="/" method="POST">
+    <select name="drink">
+      <option>Gin & Tonic</option>
+      <option>Rom & Cola</option>
+      <option>Saft</option>
+    </select>
+    <br><br>
+    <input type="submit">
+  </form>
+</body>
+
+</html>
