@@ -1,28 +1,15 @@
-var runPy = new Promise(function(success, nosuccess) {
-
-    const { spawn } = require('child_process');
-    const pyprog = spawn('python', ['node_tests.py', "test"]);
-
-    pyprog.stdout.on('data', function(data) {
-        
-        success(data);
-    });
-
-    pyprog.stderr.on('data', (data) => {
-        
-        nosuccess(data);
-    });
-});
-
 function pressBtn(btn) {
+    console.log('Pushed button!');
     var buttons = document.getElementById(btn);
     if (buttons.innerHTML == "Hey!") {
         buttons.innerHTML = "Press meg!";
     } else {
         buttons.innerHTML = "Hey!";
     }
-    runPy.then(function(fromRunpy) {
-        console.log(fromRunpy.toString());
-        res.end(fromRunpy);
-    });
+}
+
+function launchPython(btn) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "test.txt", true);
+    xhttp.send();
 }

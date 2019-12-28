@@ -1,0 +1,24 @@
+{
+  "name": "drinkmixer_web_server",
+  "version": "1.0.0",
+  "description": "Website for control of drinkmixer",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "python-shell": "^1.0.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odinase/drinkmixer_web_server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/odinase/drinkmixer_web_server/issues"
+  },
+  "homepage": "https://github.com/odinase/drinkmixer_web_server#readme"
+}

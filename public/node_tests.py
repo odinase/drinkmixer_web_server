@@ -1,19 +1,15 @@
 import sys
 
-def run_test(test_word):
+while True:
+    line = sys.stdin.readline()
+    # Filename to write
     filename = "newfile.txt"
 
-    # The 'a' flag tells Python to keep the file contents
-    # and append (add line) at the end of the file.
-    myfile = open(filename, 'a')
+    # Open the file with writing permission
+    myfile = open(filename, 'w')
 
-    # Add the line
-    myfile.write(test_word)
+    # Write a line to the file
+    myfile.write("{}\n".format(line))
 
     # Close the file
     myfile.close()
-
-    print("Complete")
-    sys.stdout.flush()
-
-run_test(sys.argv[1])
