@@ -2,26 +2,49 @@
 <html>
 
 <head>
-  <meta lang="nb">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Drinkmixer</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <!-- <link rel="icon" href="cocktail.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="cocktail.ico" type="image/x-icon" /> -->
+    <meta lang="nb">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drinkmixer</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<body>
-  <h1>Drinkmixer</h1>
-  <form id="drinks" action="/" method="POST">
-    <select name="drink">
-      <option>Gin & Tonic</option>
-      <option>Rom & Cola</option>
-      <option>Saft</option>
-    </select>
-    <br><br>
-    <input type="submit">
-  </form>
+<body id="box">
+    <h1 id="title">Drinkmixer</h1>
+    
+    <div id="note">
+    <p>Currently making:
+        <p id="drink">Drink</p>
+        </p>
+    </div>
+
+    <div id="menu">
+        <form class="drinks" action="/" method="POST">
+            <select class="selector" name="drink">
+                <option>Gin & Tonic</option>
+                <option>Rom & Cola</option>
+                <option>Saft</option>
+            </select>
+            <br><br>
+            <input class="submitor" type="submit" value="Mix it up!">
+        </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.on('data', (data) => {
+            if (data.state == "Busy") {
+                document.getElementById("menu").style.display = "none";
+                document.getElementById("note").style.display = "block";
+                document.getElementById("drink").innerHTML = data.drink;
+            } else {
+                document.getElementById("note").style.display = "none";
+                document.getElementById("menu").style.display = "block";
+            }
+            console.log(data);
+        })
+    </script>
 </body>
 
 </html>

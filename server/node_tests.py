@@ -1,4 +1,5 @@
 import sys
+from time import sleep
 
 while True:
     line = sys.stdin.readline()
@@ -13,3 +14,6 @@ while True:
 
     # Close the file
     myfile.close()
+    sleep(5)
+    print('Complete!')
+    sys.stdout.flush()
