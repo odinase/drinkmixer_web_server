@@ -1,19 +1,24 @@
 import sys
 from time import sleep
+import json
 
-while True:
-    line = sys.stdin.readline()
-    # Filename to write
-    filename = "newfile.txt"
+with open('drinks.json') as json_file:
+    drinks = json.load(json_file)["drinks"]
 
-    # Open the file with writing permission
-    myfile = open(filename, 'w')
+line = sys.stdin.readline().rstrip('\n')
+# Filename to write
+filename = "newfile.txt"
 
-    # Write a line to the file
-    myfile.write("{}\n".format(line))
+# Open the file with writing permission
+myfile = open(filename, 'w')
 
-    # Close the file
-    myfile.close()
-    sleep(5)
-    print('Complete!')
-    sys.stdout.flush()
+# Write a line to the file
+array = drinks[line]
+for a in array:
+    print(a)
+    myfile.write("{}\n".format(a))
+
+# Close the file
+myfile.close()
+print('Complete!')
+sys.stdout.flush()

@@ -21,9 +21,9 @@
     <div id="menu">
         <form class="drinks" action="/" method="POST">
             <select class="selector" name="drink">
-                <option>Gin & Tonic</option>
-                <option>Rom & Cola</option>
-                <option>Saft</option>
+                <% for (var drink of global.DRINKS) { %>
+                    <option><%= drink %></option>
+                <% } %>
             </select>
             <br><br>
             <input class="submitor" type="submit" value="Mix it up!">

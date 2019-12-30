@@ -5,9 +5,16 @@ var app = express();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fs = require("fs");
+
 
 var indexRouter = require('./routes/index');
 
+// Default state
+global.state = "Idle";
+
+// Available drinks
+global.DRINKS = Object.keys(JSON.parse(fs.readFileSync(__dirname + "/drinks.json")).drinks);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -47,7 +47,7 @@ setInterval(() => {
         drink: global.curr_drink
     }
     io.emit('data', data);
-}, 1000)
+}, 200)
 
 /**
  * Normalize a port into a number, string, or false.
