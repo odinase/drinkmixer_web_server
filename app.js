@@ -20,7 +20,7 @@ global.DRINKS = Object.keys(JSON.parse(fs.readFileSync(__dirname + "/drinks.json
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use('/favicon.ico', express.static('favicon/cocktail.ico'));
+app.use('/favicon.ico', express.static('./favicon.ico'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
