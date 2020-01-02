@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<%- include header.ejs %>
+
+<body id="box">
+
+    <%- include topnav.ejs %>
+
+    <div id="note">
+    <p>Currently making:
+        <p id="drink">Drink</p>
+        </p>
+    </div>
+
+    <div id="menu">
+        <form class="drinks" action="/" method="POST">
+            <label for="drink">New drink:</label>
+            <input class="drink" id="drink" type="text" name="new_drink" value="" placeholder="Enter new drink" >
+            <input class="submitor" type="submit" value="Submit new drink">
+        </form>
+    </div>
+
+    <form action="/init" method="POST">
+        <input class="initialiser" type="submit" value="Initialise drinkmixer">
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.on('data', (data) => {
+            if (data.state == "Busy") {
+                document.getElementById("menu").style.display = "none";
+                document.getElementById("note").style.display = "block";
+                document.getElementById("drink").innerHTML = data.drink;
+            } else {
+                document.getElementById("note").style.display = "none";
+                document.getElementById("menu").style.display = "block";
+            }
+            console.log(data);
+        })
+    </script>
+</body>
+
+</html>

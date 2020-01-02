@@ -13,12 +13,13 @@ filename = "newfile.txt"
 myfile = open(filename, 'w')
 
 # Write a line to the file
-array = drinks[line]
-for a in array:
-    print(a)
-    myfile.write("{}\n".format(a))
+# array = drinks[line]
+# for a in array:
+#     print(a)
+#     myfile.write("{}\n".format(a))
 
 # Close the file
 myfile.close()
+sleep(5)
 print('Complete!')
 sys.stdout.flush()

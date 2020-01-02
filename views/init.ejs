@@ -1,57 +1,32 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta lang="nb">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Drinkmixer</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+<%- include header.ejs %>
 
 <body id="box">
 
-    <div class="topnav">
-        <a href="#home">Home</a>
-        <a class="active" href="#news">Init mixer</a>
-        <a href="#contact">Add drink</a>
-      </div>
+    <%- include topnav.ejs %>
 
-    <h1 id="title">Drinkmixer</h1>
-    
     <div id="note">
-    <p>Currently making:
-        <p id="drink">Drink</p>
-        </p>
-    </div>
-
-    <div id="menu">
-        <form class="drinks" action="/" method="POST">
-            <select class="selector" name="drink">
-                <% for (var drink of global.DRINKS) { %>
-                    <option><%= drink %></option>
-                <% } %>
-            </select>
-            <br><br>
-            <input class="submitor" type="submit" value="Mix it up!">
-        </form>
+    <p>
+        Initialise drink mixer?
+    </p>
     </div>
 
     <form action="/init" method="POST">
-        <input class="initialiser" type="submit" value="Initialise drinkmixer">
+        <input id="init" class="initialiser" type="submit" value="Initialise drinkmixer">
     </form>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
         socket.on('data', (data) => {
-            if (data.state == "Busy") {
-                document.getElementById("menu").style.display = "none";
-                document.getElementById("note").style.display = "block";
-                document.getElementById("drink").innerHTML = data.drink;
+            if (data.state == "Init") {
+                document.getElementById("init").style.display = "none";
+                document.getElementById("note").innerHTML = "Initialising drink mixer...";
             } else {
-                document.getElementById("note").style.display = "none";
-                document.getElementById("menu").style.display = "block";
+                document.getElementById("init").style.display = "block";
+                document.getElementById("note").innerHTML = "Initialise drink mixer?";
             }
             console.log(data);
         })

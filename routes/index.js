@@ -5,6 +5,7 @@ var { PythonShell } = require('python-shell');
 /* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('index', {
+        page: 'index',
         drinks: global.DRINKS
     });
 });
@@ -15,6 +16,7 @@ router.post('/', function (req, res, next) {
     let pyshell = new PythonShell('server/node_tests.py');
     pyshell.send(req.body.drink);
     res.render('index', {
+        page: 'index',
         drinks: global.DRINKS
     });
     pyshell.on('message', function (message) {

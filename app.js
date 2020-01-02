@@ -9,6 +9,8 @@ var fs = require("fs");
 
 
 var indexRouter = require('./routes/index');
+var initRouter = require('./routes/init');
+var drinksRouter = require('./routes/drinks');
 
 // Default state
 global.state = "Idle";
@@ -28,6 +30,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/init', initRouter);
+app.use('/drinks', drinksRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));

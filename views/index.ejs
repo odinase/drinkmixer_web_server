@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta lang="nb">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Drinkmixer</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+<%- include header.ejs %>
 
 <body id="box">
 
-    <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="/init">Init mixer</a>
-        <a href="/drinks">Drinks</a>
-      </div>
-
-    <h1 id="title">Drinkmixer</h1>
+    <%- include topnav.ejs %>
     
     <div id="note">
     <p>Currently making:
@@ -36,10 +24,6 @@
             <input class="submitor" type="submit" value="Mix it up!">
         </form>
     </div>
-
-    <form action="/init" method="POST">
-        <input class="initialiser" type="submit" value="Initialise drinkmixer">
-    </form>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
